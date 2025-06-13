@@ -1,0 +1,12 @@
+DEPTH = 16384;
+WIDTH = 32;
+ADDRESS_RADIX = HEX;
+DATA_RADIX = HEX;
+CONTENT
+BEGIN
+00000000 : 0001a283;   % 5: 	lw t0,0(gp) %
+00000001 : 00100313;   % 6: 	addi t1, zero, 1 %
+00000002 : 00228293;   % 7: LOOP:	addi t0, t0, 2 %
+00000003 : 0062f2b3;   % 8: 	and t0, t0, t1 %
+00000004 : ff9ff06f;   % 9: 	j LOOP %
+END;
