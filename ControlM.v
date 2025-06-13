@@ -25,6 +25,7 @@ begin
 				7'b0100011 : proximo <= 4'b0010;
 				7'b0010011 : proximo <= 4'b0010;
 				7'b1101111 : proximo <= 4'b0010;
+				//7'b1100111 : proximo <= 4'b0010; //verificar do jalr
 				default : proximo <= 4'b0000; 
 			endcase
 		2 :
@@ -33,6 +34,7 @@ begin
 				7'b0100011 : proximo <= 4'b0101;
 				7'b0010011 : proximo <= 4'b0111;
 				7'b1101111 : proximo <= 4'b1001;
+				//7'b1100111 : proximo <= 4'b1010; //verificar do jalr
 				default : proximo <= 4'b0000; 
 			endcase
 		3 :
@@ -213,6 +215,25 @@ begin
 				op <= 2'b00;
 				EscreveIR <= 0;
 			end
+		/*jalr
+		10:
+			begin
+				CtrlEend <= 2'b00;
+				OrigPC <= 1;
+				EscrevePC <= 1;
+				Mem2Reg <= 2'b01;  //conferir depois mas acho que PC+4 -> rd
+				EscreveRege <= 1;	 //e ai depois escreve no rd
+				IouD <= 0;
+				EscreveMem <= 0;
+				LeMem <= 0;
+				EscrevePCB <= 0;
+				EscrevePCCond <= 0;
+				OrigAULA <= 2'b00;
+				OrigBULA <= 2'b00;
+				op <= 2'b00;
+				EscreveIR <= 0;
+			end
+		*/
 		default:
 			begin
 				CtrlEnd <= 2'b00;

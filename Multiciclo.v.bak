@@ -124,9 +124,9 @@ begin
 	
 	// Ver a origem do PC, se for uma operação de jump, tira uma word de PCIn para evitar o truncamento da instrução na passagem de estado para 0
 	if (estado == 9)
-		PCIn <= (OrigPC == 1) ? SaidaULA - 32'd4 : ULAprev - 32'd4;
+		PCIn <= (OrigPC) ? SaidaULA - 32'd4 : ULAprev - 32'd4;
 	else
-		PCIn <= (OrigPC == 1) ? SaidaULA : ULAprev;
+		PCIn <= (OrigPC) ? SaidaULA : ULAprev;
 	
 end
 // Banco de registradores
